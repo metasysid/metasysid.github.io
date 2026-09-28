@@ -1,15 +1,267 @@
----
-permalink: /
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecting to SYSID 2027 track</title>
-  <link rel="canonical" href="{{ '/sysid2027/' | absolute_url }}">
-  <meta http-equiv="refresh" content="0; url={{ '/sysid2027/' | relative_url }}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Across Dynamical Systems | SYSID 2027</title>
+<meta name="description" content="Open invited track on meta-learning, transfer learning, in-context learning and foundation models for dynamical systems at the 21st IFAC Symposium on System Identification (SYSID 2027), Lyon, France.">
+<style>
+  :root {
+    --bg: #0b0d12;
+    --surface: #12151c;
+    --surface-2: #171b24;
+    --border: #232838;
+    --text: #e7eaf1;
+    --text-muted: #9aa3b5;
+    --accent: #6ea8fe;
+    --accent-2: #8b7bff;
+    --radius: 14px;
+    --max-w: 860px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: radial-gradient(1200px 600px at 50% -10%, #1a2030 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(11, 13, 18, 0.75);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+  .site-title {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+  .site-band-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .site-band-link:hover { border-color: var(--accent); }
+
+  .main-content { padding: 3rem 0 4rem; }
+
+  .page-header { margin-bottom: 2.5rem; }
+  .page-title {
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    line-height: 1.25;
+    margin: 0 0 0.9rem;
+    background: linear-gradient(90deg, var(--text), var(--accent) 120%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .track-venue {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+  }
+  .track-venue a { color: var(--accent); text-decoration: none; }
+  .track-venue a:hover { text-decoration: underline; }
+
+  h2 {
+    font-size: 1.4rem;
+    margin: 2.6rem 0 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.1rem; margin: 1.8rem 0 0.8rem; color: var(--text); }
+
+  p { color: var(--text); margin: 0.9rem 0; }
+  a { color: var(--accent); }
+  ul { padding-left: 1.3rem; }
+  li { margin: 0.45rem 0; }
+
+  .organizers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 0.5rem;
+  }
+  .organizer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem;
+  }
+  .organizer p { margin: 0.25rem 0; }
+  .org-name { font-weight: 600; font-size: 1.02rem; }
+  .org-role {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-2);
+    background: rgba(139, 123, 255, 0.12);
+    border: 1px solid rgba(139, 123, 255, 0.35);
+    border-radius: 999px;
+    padding: 0.1rem 0.5rem;
+  }
+  .org-aff { color: var(--text-muted); font-size: 0.92rem; }
+
+  .tba {
+    font-style: italic;
+    color: var(--text-muted);
+    background: var(--surface-2);
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 0.05rem 0.4rem;
+  }
+
+  strong { color: var(--text); }
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 2.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .site-footer a { color: var(--accent); }
+  .footer-content p { margin: 0.3rem 0; }
+
+  @media (max-width: 600px) {
+    .main-content { padding: 2rem 0 3rem; }
+    h2 { font-size: 1.2rem; }
+  }
+</style>
 </head>
 <body>
-  <p><a href="{{ '/sysid2027/' | relative_url }}">Learning Across Dynamical Systems &ndash; SYSID 2027 open invited track</a></p>
+  <header class="site-header">
+    <div class="container">
+      <span class="site-title">SYSID 2027 Open Invited Track</span>
+      <a class="site-band-link" href="https://conferences.ifac-control.org/sysid2027/">7–9 July 2027 · Lyon, France</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <article class="page">
+        <header class="page-header">
+          <h1 class="page-title">Learning Across Dynamical Systems: Meta-Learning, Transfer Learning, and In-Context Identification</h1>
+          <p class="track-venue">Open invited track at the
+            <a href="https://conferences.ifac-control.org/sysid2027/">21st IFAC Symposium on System Identification (SYSID 2027)</a><br>
+            7–9 July 2027 · Lyon, France · ECAM Lyon</p>
+        </header>
+
+        <div class="page-content">
+          <h2 id="organizers">Organizers</h2>
+
+          <div class="organizers">
+            <div class="organizer">
+              <p><span class="org-name">Matteo Rufolo</span></p>
+              <p class="org-aff">IDSIA Dalle Molle Institute for Artificial Intelligence, USI-SUPSI, Lugano, Switzerland</p>
+              <p><a href="mailto:matteo.rufolo@supsi.ch">matteo.rufolo@supsi.ch</a></p>
+            </div>
+
+            <div class="organizer">
+              <p><span class="org-name">Marco Forgione</span><span class="org-role">contact person</span></p>
+              <p class="org-aff">IDSIA Dalle Molle Institute for Artificial Intelligence, USI-SUPSI, Lugano, Switzerland</p>
+              <p><a href="mailto:marco.forgione@supsi.ch">marco.forgione@supsi.ch</a></p>
+            </div>
+
+            <div class="organizer">
+              <p><span class="org-name">Ankush Chakrabarty</span></p>
+              <p class="org-aff">Mitsubishi Electric Research Laboratories (MERL), Cambridge, MA, USA</p>
+              <p><a href="mailto:achakrabarty@merl.com">achakrabarty@merl.com</a></p>
+            </div>
+          </div>
+
+          <h2 id="scope">Scope</h2>
+
+          <p>System identification is usually carried out one system at a time: data are
+          collected from a single plant and a model is fitted. Many applications instead
+          involve families of similar systems, such as motors from the same production
+          line, cells in a battery pack or vehicles in a fleet. Identifying each of them
+          from scratch is inefficient, as it ignores what has been learned on the others.
+          This track is about methods that learn across such classes of systems, so that
+          a new member can be identified from little data and limited computational
+          resources.</p>
+
+          <p>In transfer learning, a model pretrained on a class of systems is fine-tuned on
+          limited data from a new one. Meta-learning includes this adaptation step in the
+          training objective. Gradient-based methods learn initialisations from which a
+          few updates suffice, and hypernetworks map a dataset directly to model weights.
+          In-context methods skip the model update altogether: a sequence model reads a
+          short input–output record of a system and directly predicts its response.
+          Foundation models extend pretraining to heterogeneous time series from many
+          domains.</p>
+
+          <h2 id="topics-of-interest">Topics of interest</h2>
+
+          <p>Theoretical, methodological and applied contributions are welcome. Topics
+          include, but are not limited to:</p>
+
+          <ul>
+            <li>Meta-learning algorithms for identification: gradient-based methods, hypernetworks, in-context learning, amortised inference.</li>
+            <li>Pretraining on synthetic data: design of simulated system classes and sim-to-real transfer.</li>
+            <li>Foundation models for dynamical systems and time series.</li>
+            <li>Physics-informed and grey-box meta-learning.</li>
+            <li>Probabilistic and hierarchical Bayesian meta-learning, uncertainty quantification.</li>
+            <li>Transfer learning and domain adaptation across plants and operating conditions.</li>
+            <li>Meta-generalisation beyond the training distribution: distributionally robust optimisation, contrastive and invariance-based objectives.</li>
+            <li>Sample complexity, identifiability and the relation to classical estimators.</li>
+            <li>Self-tuning and predictive control with meta-learned models.</li>
+            <li>State estimation, fault detection and diagnosis across system classes.</li>
+            <li>Industrial applications, benchmarks and open datasets.</li>
+          </ul>
+
+          <h2 id="submitting-a-contribution">Submitting a contribution</h2>
+
+          <p>Contributions are submitted through the <a href="https://ifac.papercept.net/">IFAC PaperCept</a> platform. Select <strong>Open Invited Track Paper</strong> and use the invited session code <span class="tba">cbk9x</span>.</p>
+
+          <ul>
+            <li><strong>Submission deadline:</strong> 2 November 2026</li>
+            <li><strong>Paper length:</strong> 4–8 pages at submission; final manuscripts are limited to 6 pages in the proceedings.</li>
+            <li><strong>Format:</strong> standard IFAC two-column format, as specified in the <a href="https://conferences.ifac-control.org/sysid2027/">SYSID 2027 author guidelines</a>.</li>
+          </ul>
+
+          <p>Submissions must be original and not under review elsewhere.</p>
+
+          <h3 id="other-types-of-contribution">Other types of contribution</h3>
+
+          <p>The procedure above is for regular track papers. To contribute a joint
+          journal/conference paper, a dissemination paper or a discussion paper, please
+          contact <a href="mailto:marco.forgione@supsi.ch">Marco Forgione</a>.</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p><a href="https://conferences.ifac-control.org/sysid2027/">21st IFAC Symposium on System Identification (SYSID 2027)</a></p>
+        <p>Contact: <a href="mailto:marco.forgione@supsi.ch">marco.forgione@supsi.ch</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
