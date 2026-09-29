@@ -136,6 +136,75 @@
     padding: 0.05rem 0.4rem;
   }
 
+  .quick-submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.6rem 1.8rem;
+    margin-top: 1.6rem;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .qs-item { display: flex; flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .qs-item:nth-child(2) { align-items: center; }
+  .qs-item:last-child { align-items: flex-end; }
+  .qs-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+  .qs-value { font-weight: 600; line-height: 1.2; padding: 0.3rem 0; }
+  .qs-value a { text-decoration: none; }
+  .qs-value a:hover { text-decoration: underline; }
+
+  .session-code {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    vertical-align: middle;
+    color: var(--accent);
+    background: rgba(110, 168, 254, 0.1);
+    border: 1px solid rgba(110, 168, 254, 0.45);
+    border-radius: 6px;
+    padding: 0 0.4rem 0 0.45rem;
+    cursor: pointer;
+  }
+  .session-code code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .session-code:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .session-code.large { font-size: 1.1rem; padding: 0.05rem 0.45rem 0.05rem 0.55rem; }
+  .copy-icon {
+    position: relative;
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    flex: none;
+  }
+  .copy-icon svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .copy-icon .i-copy { color: var(--text-muted); }
+  .copy-icon .i-check { color: #7ee2a8; opacity: 0; transform: scale(0.5); }
+  .session-code.copied .i-copy { opacity: 0; transform: scale(0.5); }
+  .session-code.copied .i-check { opacity: 1; transform: scale(1); }
+
   strong { color: var(--text); }
 
   .site-footer {
@@ -169,6 +238,21 @@
           <p class="track-venue">Open invited track at the
             <a href="https://conferences.ifac-control.org/sysid2027/">21st IFAC Symposium on System Identification (SYSID 2027)</a><br>
             7–9 July 2027 · Lyon, France · ECAM Lyon</p>
+
+          <div class="quick-submit">
+            <div class="qs-item">
+              <span class="qs-label">Submit via</span>
+              <span class="qs-value"><a href="https://ifac.papercept.net/">IFAC PaperCept</a></span>
+            </div>
+            <div class="qs-item">
+              <span class="qs-label">Submission code</span>
+              <span class="session-code large" tabindex="0" role="button" title="Click to copy" aria-label="Copy submission code cbk9x" data-copy="cbk9x"><code>cbk9x</code><span class="copy-icon" aria-hidden="true"><svg class="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><svg class="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></span>
+            </div>
+            <div class="qs-item">
+              <span class="qs-label">Deadline</span>
+              <span class="qs-value">2 November 2026</span>
+            </div>
+          </div>
         </header>
 
         <div class="page-content">
@@ -235,7 +319,7 @@
 
           <h2 id="submitting-a-contribution">Submitting a contribution</h2>
 
-          <p>Contributions are submitted through the <a href="https://ifac.papercept.net/">IFAC PaperCept</a> platform. Select <strong>Open Invited Track Paper</strong> and use the submission code <span class="tba">cbk9x</span>.</p>
+          <p>Contributions are submitted through the <a href="https://ifac.papercept.net/">IFAC PaperCept</a> platform. Select <strong>Open Invited Track Paper</strong> and use the submission code <span class="session-code" tabindex="0" role="button" title="Click to copy" aria-label="Copy submission code cbk9x" data-copy="cbk9x"><code>cbk9x</code><span class="copy-icon" aria-hidden="true"><svg class="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><svg class="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></span>.</p>
 
           <ul>
             <li><strong>Submission deadline:</strong> 2 November 2026</li>
@@ -263,5 +347,34 @@
       </div>
     </div>
   </footer>
+<script>
+  document.querySelectorAll('.session-code[data-copy]').forEach(function (el) {
+    var copy = function () {
+      var done = function () {
+        el.classList.add('copied');
+        setTimeout(function () { el.classList.remove('copied'); }, 1500);
+      };
+      var fallback = function () {
+        // Clipboard API unavailable: copy via a selection, which also leaves
+        // the code selected for a manual Cmd/Ctrl+C.
+        var range = document.createRange();
+        range.selectNodeContents(el.querySelector('code'));
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        try { if (document.execCommand('copy')) { done(); } } catch (e) {}
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(el.dataset.copy).then(done, fallback);
+      } else {
+        fallback();
+      }
+    };
+    el.addEventListener('click', copy);
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+    });
+  });
+</script>
 </body>
 </html>
